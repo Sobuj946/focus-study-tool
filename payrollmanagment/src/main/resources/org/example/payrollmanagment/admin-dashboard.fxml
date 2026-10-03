@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.payrollmanagment.AdminDashboardController"
+            stylesheets="@style.css"
+            prefWidth="1000" prefHeight="650">
+
+    <left>
+        <VBox spacing="15" styleClass="sidebar" prefWidth="220">
+            <padding>
+                <Insets top="20" right="15" bottom="20" left="15"/>
+            </padding>
+            <Label text="Payroll System" styleClass="sidebar-title"/>
+            <Separator />
+
+            <Button text="Dashboard" onAction="#handleDashboard" styleClass="nav-button, nav-active" maxWidth="INFINITY"/>
+            <Button text="Manage Employees" onAction="#handleManageEmployees" styleClass="nav-button" maxWidth="INFINITY"/>
+            <Button text="Process Payroll" onAction="#handleProcessPayroll" styleClass="nav-button" maxWidth="INFINITY"/>
+            <Button text="Reports" onAction="#handleReports" styleClass="nav-button" maxWidth="INFINITY"/>
+
+            <Spacer VBox.vgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="logout-button" maxWidth="INFINITY"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="20">
+            <padding>
+                <Insets top="20" right="25" bottom="20" left="25"/>
+            </padding>
+
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="Admin Dashboard" styleClass="header-title"/>
+                <Spacer HBox.hgrow="ALWAYS"/>
+                <Label fx:id="welcomeLabel" text="Welcome, Admin!" styleClass="welcome-text"/>
+            </HBox>
+
+            <HBox spacing="20">
+                <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label text="Total Employees" styleClass="card-title"/>
+                    <Label fx:id="totalEmployeesLabel" text="0" styleClass="card-value"/>
+                </VBox>
+
+                <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label text="Monthly Payroll" styleClass="card-title"/>
+                    <Label fx:id="monthlyPayrollLabel" text="$0.00" styleClass="card-value"/>
+                </VBox>
+
+                <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label text="Pending Payments" styleClass="card-title"/>
+                    <Label fx:id="pendingPaymentsLabel" text="0" styleClass="card-value"/>
+                </VBox>
+            </HBox>
+
+            <VBox spacing="10" VBox.vgrow="ALWAYS">
+                <Label text="Recent Transactions" styleClass="section-title"/>
+                <TableView fx:id="recentTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn text="ID" prefWidth="80"/>
+                        <TableColumn text="Employee Name" prefWidth="200"/>
+                        <TableColumn text="Amount" prefWidth="120"/>
+                        <TableColumn text="Status" prefWidth="120"/>
+                        <TableColumn text="Date" prefWidth="150"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

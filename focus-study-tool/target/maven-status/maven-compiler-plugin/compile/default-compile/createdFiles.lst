@@ -1,0 +1,5 @@
+com\focustool\ui\PdfViewerPane.class
+com\focustool\Main.class
+com\focustool\util\WhitelistManager.class
+com\focustool\ui\PomodoroPane.class
+com\focustool\ui\BrowserPane.class
